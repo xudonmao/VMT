@@ -21,12 +21,12 @@ tensorbayes==0.4.0
 
 1. Run VMT
 ```
-python -u run_dirtt.py --datadir data --run 0 --dirt 0 --src mnist --trg svhn --inorm 0 --dw 0.01 --svw 0.5 --tvw 0.01 --tcw 0.01 --smw 0.5 --tmw 0.01
+python -u run_dirtt.py --datadir data --src mnist --trg svhn --inorm 1 --run 0 --dirt 0 --dw 0.01 --svw 1 --tvw 0.1 --tcw 0.1 --smw 1 --tmw 0.1
 ```
 
 2. Run DIRT-T 
 ```
-python -u run_dirtt.py --datadir data --run 0 --dirt 5000 --src mnist --trg svhn --inorm 0 --dw 0.01 --svw 0.5 --tvw 0.01 --tcw 0.01 --smw 0.5 --tmw 0.01 --bw 0.001
+python -u run_dirtt.py --datadir data --src mnist --trg svhn --inorm 1 --run 0 --dirt 5000 --dw 0.01 --svw 1 --tvw 0.1 --tcw 0.1 --smw 1 --tmw 0.1
 ```
 
 
