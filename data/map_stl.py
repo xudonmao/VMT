@@ -6,14 +6,6 @@ from skimage.transform import downscale_local_mean
 from skimage import io
 import random
 
-def stl_resize(x):
-    H, W, C = 32, 32, 3
-    resized_x = np.empty((len(x), H, W, C), dtype='float32')
-
-    for i, img in enumerate(x):
-        resized_x[i] = resize(img, (H, W), mode='reflect')
-
-    return resized_x
 
 
 
@@ -43,9 +35,6 @@ testy = testy[test_mask].astype('uint8')
 trainx = downscale_local_mean(trainx, (1, 3, 3, 1))
 testx = downscale_local_mean(testx, (1, 3, 3, 1))
 
-#trainx = stl_resize(trainx)
-#testx = stl_resize(testx)
-#
 trainx = trainx.astype('uint8')
 testx = testx.astype('uint8')
 
@@ -55,10 +44,6 @@ np.random.seed(seed)
 np.random.shuffle(trainx)
 np.random.seed(seed)
 np.random.shuffle(trainy)
-
-for i in range(10):
-  io.imsave('test{}.png'.format(i), trainx[i,:])
-  print trainy[i]
 
 
 savemat('stl_train.mat', {'X': trainx, 'y': trainy})

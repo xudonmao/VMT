@@ -42,7 +42,7 @@ def train(M, src=None, trg=None, has_disc=True, saver=None, model_name=None):
     bs = 64
     iterep = 1000
     itersave = 20000
-    n_epoch = 10000
+    n_epoch = 300
     epoch = 0
     feed_dict = {}
 
