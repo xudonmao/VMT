@@ -73,8 +73,9 @@ def mix_up(x, y, bs, alpha):
     x_weight = weight.reshape(bs, 1, 1, 1)
     y_weight = weight.reshape(bs, 1)
 
-    x1, x2 = x, tf.gather(x, tf.random_shuffle(tf.range(tf.shape(x)[0])))
-    y1, y2 = y, tf.gather(y, tf.random_shuffle(tf.range(tf.shape(y)[0])))
+    index = tf.random_shuffle(tf.range(tf.shape(x)[0]))
+    x1, x2 = x, tf.gather(x, index)
+    y1, y2 = y, tf.gather(y, index)
 
     mix_x = x1 * x_weight + x2 * (1 - x_weight)
     mix_y = y1 * y_weight + y2 * (1 - y_weight)
